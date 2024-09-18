@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="create()">START</button>
+
+    <script>
+            let  pacMan=['pacMan1.png','pacMan2.png','pacMan3.png','pacMan4.png']
+            let pac1=document.createElement("img");
+        
+            function create(){
+                
+                pac1.src = pacMan[0];
+                pac1.width="50";
+                pac1.height="50";
+                pac1.style.position="absolute";
+                document.body.appendChild(pac1)
+
+                // pac2.src = pacMan1[0];
+                // pac2.width="50";
+                // pac2.height="50";
+                // pac2.style.position="absolute";
+                // document.body.appendChild(pac2)
+
+        }
+        let position = 0;
+        let  velocity = 20;
+        let forward=true;
+        let front=1;
+        let four=1;
+            function move(){
+                pac1.style.left=position+"px"
+             if(position<400 && forward==true){
+                 pac1.src=pacMan[front%2]
+                 position=position+velocity;
+                 pac1.style.left = position + "px";
+                 console.log("forward : " +position);
+                 front=front+1;
+            if(position>=400 ){
+                 forward=false;
+             console.log("boolean :"+forward );
+                 }
+             }
+            
+                 if(position>0 && forward==false){
+                        
+                    pac1.src=pacMan[four%2+2]
+
+                    console.log(four)
+                    console.log(pac1)
+                    position=position-velocity;
+                    pac1.style.left = position + "px";
+                    console.log("backward  : " + position );
+                    four=four+1;
+                if(position<=0){
+                    forward=true;
+                   //  console.log("boolean :"+forward );
+                     }
+
+                    }
+                 } setInterval(move,500)
+            //   let front=1;
+              
+
+            //     function move(){
+            //         position=position+velocity
+            //         if(position > window.innerWidth -pac1.width){
+
+            //         }
+            //         pac1.style.left=position+"px"
+            //         // if(position<400 && forward==true){
+            //         //     pac1.src=pacMan[front%2]
+            //         //     position=position+velocity;
+            //         //     pac1.style.left = position + "px";
+            //         //     // console.log("forward : " +position);
+            //         //     front=front+1;
+            //         //     // console.log(pac1)
+            //         //     if(position>=400 ){
+            //         //         forward=false;
+            //         //         // console.log("boolean :"+forward );
+            //         //     }
+                        
+            //         // }
+            //         // if(position>0 && forward==false){
+                        
+            //             pac1.src=pacMan[three%3]
+            //             three=three+1;
+            //             console.log(three)
+            //             // console.log(pac1)
+            //             position=position-velocity;
+                        
+            //             pac1.style.left = position + "px";
+            //             // console.log("backward  : " + position );
+            //             if(position<=0){
+            //                 forward=true;
+            //                 // console.log("boolean :"+forward );
+            //             }
+
+            //         }
+            //     setInterval(move,500)
+                
+            
+        
+        
+        </script>
+    
+</body>
+</html>
